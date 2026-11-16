@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Koulukatu 14, Haapajärvi</title>
+  <meta name="description" content="Kalustettu omakotitalo Haapajärvellä yritysten työntekijöiden majoitukseen. Kaksi asuntoa, 3 + 3 henkilöä.">
+  <link rel="alternate" hreflang="fi" href="index.html">
+  <link rel="alternate" hreflang="en" href="en.html">
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --text: #1f2328;
+      --muted: #5b6168;
+      --accent: #2f5d62;
+      --line: #dedbd4;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2 { font-weight: 500; }
+    strong { font-weight: 500; }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 16px 56px;
+    }
+    header { max-width: 720px; }
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: clamp(380px, 65vh, 620px);
+      overflow: hidden;
+      background: #2b2f33;
+      color: #fff;
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 14, 18, 0.8) 0%, rgba(10, 14, 18, 0.4) 50%, rgba(10, 14, 18, 0.1) 100%);
+    }
+    .kieli {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      display: flex;
+      gap: 2px;
+      padding: 3px;
+      border-radius: 999px;
+      background: rgba(10, 14, 18, 0.45);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+    .kieli a {
+      padding: 4px 12px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+    .kieli a[aria-current="page"] { background: #fff; color: var(--text); }
+    .kieli a:not([aria-current]):hover { background: rgba(255, 255, 255, 0.18); }
+    .hero-sisalto {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 44px;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 6vw, 3.2rem);
+      font-weight: 200;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+    }
+    .hero .sana { white-space: nowrap; }
+    /* Talon katto savupiippuineen MAJOITUSTA-sanan päällä */
+    .katto {
+      position: relative;
+      display: inline-block;
+    }
+    .katto::before {
+      content: "";
+      position: absolute;
+      left: -0.12em;
+      right: 0;
+      bottom: 100%;
+      height: 0.62em;
+      margin-bottom: 0.02em;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20' preserveAspectRatio='none'%3E%3Cpath d='M0 19.5 L50 1.5 L100 19.5 M73 9.8 V2.5 H80 V12.3' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+      filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.35));
+    }
+    .hero p {
+      margin: 14px 0 0;
+      font-size: clamp(1rem, 2.6vw, 1.25rem);
+      opacity: 0.92;
+    }
+    .hero p span { white-space: nowrap; }
+    .otsikko {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      line-height: 1.15;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .alaotsikko {
+      margin: 8px 0 0;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .esittely { margin: 24px 0 0; }
+    .faktat {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .faktat li {
+      padding: 4px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .kuvat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 40px 0 0;
+    }
+    figure { margin: 0; }
+    .kuvat img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 6px;
+      background: var(--line);
+    }
+    figcaption {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .lohkot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 40px 0 0;
+    }
+    .lohko {
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+    .lohko h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    .lohko p { margin: 0 0 12px; }
+    .lohko p:last-child { margin-bottom: 0; }
+    .ominaisuudet {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .ominaisuudet li {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .ominaisuudet li:last-child { border-bottom: 0; }
+    .sangyt {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--accent);
+    }
+    .sanky {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sanky svg { width: 20px; height: 30px; }
+    .sanky svg.levea, .sanky svg.poyta-4 { width: 30px; }
+    .sanky svg.poyta-6 { width: 38px; }
+    .sanky small {
+      margin-top: 2px;
+      font-size: 0.72rem;
+      line-height: 1.2;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .galleria { margin: 48px 0 0; }
+    .galleria-yla {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .galleria h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    .galleria-napit { display: flex; gap: 8px; }
+    .galleria-nappi {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .galleria-nappi:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+    .galleria-nappi:disabled { opacity: 0.35; cursor: default; }
+    .karuselli {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      padding-bottom: 8px;
+    }
+    .karuselli:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .karuselli figure {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+    .karuselli img {
+      display: block;
+      height: clamp(240px, 40vw, 400px);
+      width: auto;
+      max-width: 85vw;
+      object-fit: cover;
+      border-radius: 6px;
+      background: var(--line);
+    }
+    .edut {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 56px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .edut li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 140px;
+      padding: 24px 16px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 500;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      text-align: center;
+    }
+    .edut svg { width: 32px; height: 32px; opacity: 0.9; }
+    @media (max-width: 860px) {
+      .edut { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .edut li { min-height: 120px; padding: 20px 12px; font-size: 0.98rem; }
+    }
+    .yhteys {
+      margin: 40px 0 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .yhteys strong { color: var(--accent); }
+    .yhteys a { color: var(--text); overflow-wrap: anywhere; }
+    .yhteys a[href^="tel:"] { white-space: nowrap; }
+    @media (max-width: 700px) {
+      main { padding-top: 32px; }
+      .kuvat, .lohkot { grid-template-columns: 1fr; }
+      .lohko-yleinen { order: -1; }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="sanky-1" viewBox="0 0 20 30" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="1" y="1" width="18" height="28" rx="2"/>
+      <rect x="4.5" y="4" width="11" height="5" rx="1.5"/>
+      <path d="M1 12h18"/>
+    </symbol>
+    <symbol id="sanky-120" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="1" y="1" width="28" height="28" rx="2"/>
+      <rect x="5" y="4" width="20" height="5" rx="1.5"/>
+      <path d="M1 12h28"/>
+    </symbol>
+    <symbol id="tarkistus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10.5" stroke-width="1.6"/>
+      <path d="M7.5 12.5l3 3 6-6.5"/>
+    </symbol>
+    <symbol id="poyta-6" viewBox="0 0 38 30" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="7" y="7" width="24" height="16" rx="1.5"/>
+      <rect x="10" y="1.5" width="7" height="3.5" rx="1"/>
+      <rect x="21" y="1.5" width="7" height="3.5" rx="1"/>
+      <rect x="10" y="25" width="7" height="3.5" rx="1"/>
+      <rect x="21" y="25" width="7" height="3.5" rx="1"/>
+      <rect x="1.5" y="11.5" width="3.5" height="7" rx="1"/>
+      <rect x="33" y="11.5" width="3.5" height="7" rx="1"/>
+    </symbol>
+    <symbol id="poyta-4" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.6">
+      <rect x="7" y="7" width="16" height="16" rx="1.5"/>
+      <rect x="11.5" y="1.5" width="7" height="3.5" rx="1"/>
+      <rect x="11.5" y="25" width="7" height="3.5" rx="1"/>
+      <rect x="1.5" y="11.5" width="3.5" height="7" rx="1"/>
+      <rect x="25" y="11.5" width="3.5" height="7" rx="1"/>
+    </symbol>
+  </svg>
+  <section class="hero">
+    <nav class="kieli" aria-label="Kieli / Language">
+      <a href="index.html" lang="fi" aria-current="page">FI</a>
+      <a href="en.html" lang="en" hreflang="en">EN</a>
+    </nav>
+    <img src="kuvat/hero.jpg" alt="Koulukatu 14: talo, piha ja autotalli" width="1299" height="866" fetchpriority="high">
+    <div class="hero-sisalto">
+      <h1><span class="sana">Yritys<span class="katto">majoitusta</span></span> Haapajärvellä</h1>
+      <p><span>Heti käyttövalmis</span> • <span>Kalustettu</span> • <span>Joustavat vuokra-ajat</span></p>
+    </div>
+  </section>
+
+  <main>
+    <header>
+      <h2 class="otsikko">Koulukatu 14, Haapajärvi</h2>
+      <p class="alaotsikko">Kalustettu majoitus työntekijöille</p>
+      <p class="esittely">
+        Kalustettu omakotitalo Haapajärvellä yritysten työntekijöiden majoitukseen.
+        Talossa on kaksi erillistä asuntoa, joihin kumpaankin majoittuu kolme henkilöä.
+        Asunnoissa on omat keittiöt, ja ne soveltuvat sekä lyhyt- että pitkäaikaiseen majoitukseen.
+      </p>
+      <ul class="faktat">
+        <li>2 asuntoa</li>
+        <li>3 + 3 henkilöä</li>
+        <li>Kalustettu</li>
+        <li>Pyykinpesukone</li>
+        <li>Liinavaatteet</li>
+        <li>WiFi</li>
+        <li>TV</li>
+        <li>Iso piha (3–5 autoa)</li>
+        <li>Sähkölukko</li>
+      </ul>
+    </header>
+
+    <section class="kuvat" aria-label="Kuvat kohteesta">
+      <figure>
+        <img src="kuvat/ulkoa.jpg" alt="Talo ulkoa, pihalla autotalli ja tilaa pysäköinnille" width="1299" height="866">
+        <figcaption>Talo ja piha</figcaption>
+      </figure>
+      <figure>
+        <img src="kuvat/keittio.jpg" alt="Valoisa keittiö ja ruokailutila" width="1600" height="1067" loading="lazy">
+        <figcaption>Keittiö</figcaption>
+      </figure>
+      <figure>
+        <img src="kuvat/asunto.jpg" alt="Keittiö ja ruokailutila, taustalla makuuhuone" width="1600" height="1067" loading="lazy">
+        <figcaption>Asunto</figcaption>
+      </figure>
+    </section>
+
+    <section class="lohkot" aria-label="Asunnot ja kohteen tiedot">
+      <div class="lohko lohko-ala">
+        <h2>Alakerran asunto</h2>
+        <ul class="ominaisuudet">
+          <li>
+            <span>1 makuuhuone</span>
+            <span class="sangyt">
+              <span class="sanky" role="img" aria-label="120 cm sänky"><svg class="levea"><use href="#sanky-120"/></svg><small>120 cm</small></span>
+              <span class="sanky" role="img" aria-label="yhden hengen sänky"><svg><use href="#sanky-1"/></svg></span>
+            </span>
+          </li>
+          <li>
+            <span>Olohuone</span>
+            <span class="sangyt">
+              <span class="sanky" role="img" aria-label="yhden hengen sänky"><svg><use href="#sanky-1"/></svg></span>
+            </span>
+          </li>
+          <li>Kylpyhuone ja sauna</li>
+          <li>
+            <span>Keittiö + ruokailutila</span>
+            <span class="sangyt">
+              <span class="sanky" role="img" aria-label="ruokapöytä ja 6 tuolia"><svg class="poyta-6"><use href="#poyta-6"/></svg></span>
+            </span>
+          </li>
+          <li>WC</li>
+        </ul>
+      </div>
+      <div class="lohko lohko-yleinen">
+        <h2>Kohteesta</h2>
+        <p>
+          Vuokrattavana hyvin varusteltu kahden asunnon talokokonaisuus yritysten työntekijöiden majoitukseen.
+          Kohde soveltuu erinomaisesti niin projekti- ja työmaamajoitukseen kuin pidempiaikaiseenkin käyttöön.
+        </p>
+        <p>Kohde on hyvin varusteltu ja vuokra sisältää siivous- ja talonmiespalvelut.</p>
+      </div>
+      <div class="lohko lohko-yla">
+        <h2>Yläkerran asunto</h2>
+        <ul class="ominaisuudet">
+          <li>
+            <span>1 makuuhuone</span>
+            <span class="sangyt">
+              <span class="sanky" role="img" aria-label="yhden hengen sänky"><svg><use href="#sanky-1"/></svg></span>
+              <span class="sanky" role="img" aria-label="yhden hengen sänky"><svg><use href="#sanky-1"/></svg></span>
+            </span>
+          </li>
+          <li>
+            <span>1 alkovi</span>
+            <span class="sangyt">
+              <span class="sanky" role="img" aria-label="120 cm sänky"><svg class="levea"><use href="#sanky-120"/></svg><small>120 cm</small></span>
+            </span>
+          </li>
+          <li>Kylpyhuone / WC</li>
+          <li>
+            <span>Keittiö + ruokailutila</span>
+            <span class="sangyt">
+              <span class="sanky" role="img" aria-label="ruokapöytä ja 4 tuolia"><svg class="poyta-4"><use href="#poyta-4"/></svg></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="galleria" aria-label="Kuvagalleria">
+      <div class="galleria-yla">
+        <h2>Kuvagalleria</h2>
+        <div class="galleria-napit">
+          <button type="button" class="galleria-nappi" data-suunta="-1" aria-label="Edelliset kuvat">‹</button>
+          <button type="button" class="galleria-nappi" data-suunta="1" aria-label="Seuraavat kuvat">›</button>
+        </div>
+      </div>
+      <div class="karuselli" tabindex="0" aria-label="Kuvat, vieritä sivusuunnassa">
+        <figure><img src="kuvat/galleria-01.jpg" alt="Talo ja terassi takapihan puolelta" width="1200" height="800" loading="lazy"><figcaption>Talo ja terassi</figcaption></figure>
+        <figure><img src="kuvat/galleria-02.jpg" alt="Katettu terassi" width="1200" height="800" loading="lazy"><figcaption>Katettu terassi</figcaption></figure>
+        <figure><img src="kuvat/galleria-03.jpg" alt="Valoisa olohuone, jossa sohva ja nojatuoli" width="1200" height="800" loading="lazy"><figcaption>Olohuone</figcaption></figure>
+        <figure><img src="kuvat/galleria-04.jpg" alt="Makuuhuone" width="1200" height="800" loading="lazy"><figcaption>Makuuhuone</figcaption></figure>
+        <figure><img src="kuvat/galleria-05.jpg" alt="Makuuhuone, jossa kaksi sänkyä" width="1200" height="800" loading="lazy"><figcaption>Makuuhuone</figcaption></figure>
+        <figure><img src="kuvat/galleria-06.jpg" alt="Keittiö ja ruokailutila" width="1200" height="800" loading="lazy"><figcaption>Keittiö ja ruokailutila</figcaption></figure>
+        <figure><img src="kuvat/galleria-07.jpg" alt="Sauna" width="800" height="1200" loading="lazy"><figcaption>Sauna</figcaption></figure>
+        <figure><img src="kuvat/galleria-08.jpg" alt="Kylpyhuone ja WC" width="800" height="1200" loading="lazy"><figcaption>Kylpyhuone</figcaption></figure>
+        <figure><img src="kuvat/galleria-09.jpg" alt="Makuuhuone, jossa kaksi yhden hengen sänkyä" width="900" height="1200" loading="lazy"><figcaption>Makuuhuone</figcaption></figure>
+        <figure><img src="kuvat/galleria-10.jpg" alt="Alkovi, jossa 120 cm sänky" width="900" height="1200" loading="lazy"><figcaption>Alkovi</figcaption></figure>
+        <figure><img src="kuvat/galleria-11.jpg" alt="Olohuone" width="1200" height="800" loading="lazy"><figcaption>Olohuone</figcaption></figure>
+        <figure><img src="kuvat/galleria-12.jpg" alt="Suihku ja WC" width="900" height="1200" loading="lazy"><figcaption>Suihku ja WC</figcaption></figure>
+      </div>
+    </section>
+
+    <ul class="edut" aria-label="Kohteen edut">
+      <li><svg aria-hidden="true"><use href="#tarkistus"/></svg>Valmiiksi kalustetut asunnot</li>
+      <li><svg aria-hidden="true"><use href="#tarkistus"/></svg>Soveltuu työporukoille</li>
+      <li><svg aria-hidden="true"><use href="#tarkistus"/></svg>Siivous kerran viikossa</li>
+      <li><svg aria-hidden="true"><use href="#tarkistus"/></svg>Joustavat vuokra-ajat</li>
+    </ul>
+
+    <p class="yhteys">
+      <strong>Ota yhteyttä:</strong> Nevacom Oy,
+      <a href="tel:+358440451369">+358 44 045 1369</a>,
+      <a href="mailto:laura.nevalainen@sisaltoa.com">laura.nevalainen@sisaltoa.com</a>
+    </p>
+  </main>
+  <script>
+    (function () {
+      var karuselli = document.querySelector('.karuselli');
+      var napit = document.querySelectorAll('.galleria-nappi');
+      if (!karuselli || napit.length !== 2) return;
+      function paivita() {
+        var loppu = karuselli.scrollWidth - karuselli.clientWidth - 2;
+        napit[0].disabled = karuselli.scrollLeft <= 2;
+        napit[1].disabled = karuselli.scrollLeft >= loppu;
+      }
+      napit.forEach(function (nappi) {
+        nappi.addEventListener('click', function () {
+          karuselli.scrollBy({ left: Number(nappi.dataset.suunta) * karuselli.clientWidth * 0.8, behavior: 'smooth' });
+        });
+      });
+      karuselli.addEventListener('scroll', paivita, { passive: true });
+      window.addEventListener('resize', paivita);
+      window.addEventListener('load', paivita);
+      paivita();
+    })();
+  </script>
+</body>
+</html>
